@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-class MyBot : IChessBot
+class SimpleEvalNegaMax : IChessBot
 {
     // Arbitrary, high values. We don't use int.MinValue and int.MaxValue to ensure alpha and beta don't over-/underflow when negated
     private const int MAX_SCORE = 1000000;

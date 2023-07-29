@@ -9,7 +9,7 @@ namespace ChessChallenge.Application
     {
         public static void DrawButtons(ChallengeController controller)
         {
-            Vector2 buttonPos = UIHelper.Scale(new Vector2(260, 210));
+            Vector2 buttonPos = UIHelper.Scale(new Vector2(150, 210));
             Vector2 buttonSize = UIHelper.Scale(new Vector2(260, 55));
             float spacing = buttonSize.Y * 1.2f;
             float breakSpacing = spacing * 0.6f;
@@ -68,6 +68,22 @@ namespace ChessChallenge.Application
             if (NextButtonInRow("Exit (ESC)", ref buttonPos, spacing, buttonSize))
             {
                 Environment.Exit(0);
+            }
+
+            buttonPos = UIHelper.Scale(new Vector2(405, 210));
+            buttonSize = UIHelper.Scale(new Vector2(200, 55));
+
+            if (NextButtonInRow("MyBot vs SE_NM", ref buttonPos, spacing, buttonSize))
+            {
+                controller.StartNewBotMatch(ChallengeController.PlayerType.MyBot, ChallengeController.PlayerType.NegaMaxBot);
+            }
+            if (NextButtonInRow("MyBot vs 800", ref buttonPos, spacing, buttonSize))
+            {
+                controller.StartNewBotMatch(ChallengeController.PlayerType.MyBot, ChallengeController.PlayerType.Reference800);
+            }
+            if (NextButtonInRow("MyBot vs 1950", ref buttonPos, spacing, buttonSize))
+            {
+                controller.StartNewBotMatch(ChallengeController.PlayerType.MyBot, ChallengeController.PlayerType.Reference1950);
             }
 
             bool NextButtonInRow(string name, ref Vector2 pos, float spacingY, Vector2 size)
