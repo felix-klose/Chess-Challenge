@@ -193,7 +193,8 @@ class SimpleEvalNegaMax : IChessBot
             if (board.IsWhiteToMove == _isPlayingWhite) return MIN_SCORE + 100 - depth;
             else return MAX_SCORE - 100 + depth;
         }
-        else if (board.IsDraw() || board.IsInsufficientMaterial() || board.IsRepeatedPosition()) return 0;
+        else if (board.IsDraw() || board.IsInsufficientMaterial() || board.IsRepeatedPosition())
+            return MIN_SCORE + 100;
 
         // Calculate and return piece values otherwise
         return GetPieceValues(board);
