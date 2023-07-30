@@ -194,7 +194,7 @@ class MyBot : IChessBot
             else return MAX_SCORE - 100 + depth;
         }
         else if (board.IsDraw() || board.IsInsufficientMaterial() || board.IsRepeatedPosition())
-            return !_isPlayingWhite ? MIN_SCORE + 100 : MAX_SCORE - 100;
+            return 0;
 
         // Calculate and return piece values otherwise
         return GetPieceValues(board);
